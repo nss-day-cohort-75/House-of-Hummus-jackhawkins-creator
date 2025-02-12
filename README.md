@@ -56,10 +56,10 @@ sequenceDiagram
 > 🧨 Before you click the "Assessment Complete" button on the Learning Platform, add your answers below for each question and make a commit. It is your option to request a face-to-face meeting with a coach for a vocabulary review.
 
 1. Should transient state be represented in a database diagram? Why, or why not?
-   > Your answer here
+   > No, the ERD wouldn’t need a transient state resource because transient state is not persistent data. Rather, transient state includes values that are constantly changing, either by clicking different radio buttons or by hitting the confirmation button for a reset.
 2. In the **FoodTruck** module, you are **await**ing the invocataion of all of the component functions _(e.g. sales, veggie options, etc.)_. Why must you use the `await` keyword there? Explain what happens if you remove it.
-   > Your answer here
+   > Await is necessary because the imported functions (e.g., Sales()) are asynchronous. By adding the await keyword, we’re making sure that our promises are resolved before advancing to the next chunk of code. If we didn’t have await keywords, the code would still execute. However, the functions wouldn’t be able to finish, and the data wouldn’t correctly display in our browser.
 3. When the user is making choices by selecting radio buttons, explain how that data is retained so that the **Purchase Combo** button works correctly.
-   > Your answer here
+   > The transient state module is where we store our temporary (i.e., constantly changing) data. Whenever the user clicks a radio button, the event listener captures the change. The transient state then updates to reflect said change (altering entreeId, vegetableId, or sideId). Upon clicking the Purchase Combo button, the user triggers the makePurchase() function, which pushes the transient state data to the server, essentially making the user selections permanent in the API database.
 4. You used the `map()` array method in the self assessment _(at least, you should have since it is a learning objective)_. Explain why that function is helpful as a replacement for a `for..of` loop.
-   > Your answer here
+   > While for…of loops offer great versatility, the map() method is specifically designed for array iteration, transformation, and return. To accomplish the same thing in a for…of loop, we would first need to define an empty array and then push our altered items to said array. For our purposes in this assignment, the map() method is slightly more concise.
